@@ -1,327 +1,443 @@
 @font-face {
-    font-family: myFont ;
-    src: url(cyberpunk.ttf);
-  }
+  font-family: myFont;
+  src: url(cyberpunk.ttf);
+}
 
-  input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    outline: none;
-    cursor: pointer;
-    border-color: cyan;
-  }
-  
-  input[type="checkbox"]::before {
-    content: '\2713';
-    display: block;
-    width: 16px;
-    height: 16px;
-    text-align: center;
-    line-height: 16px;
-    color: black;
-    background-color: #999;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  input[type="checkbox"]:checked::before {
-    background-color: yellow;
-  }
+.flash {
+  animation-name: flash;
+  animation-duration: 2s;
+  animation-iteration-count: var(--clip-one);
+}
 
-  .item-description {
-    padding: 10px;
-    width: 800px;
-    margin-bottom: 10px;
-    border-color: yellow;
-    background-color: cyan;
-    font-family: myFont;
-    color: black;
-    font-size: x-large;
-    font: bold;
+@keyframes flash {
+  0% {
+    opacity: 1;
   }
-  
-  .item-completed:checked + .item-description {
-    background: gray;
-    text-decoration: line-through;
-    text-decoration-color: yellow;
-    text-decoration-style: solid;
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-  }
-  
-  #add {
-    cursor: pointer;
-    border-color: cyan;
-  }
-  
-  body {
-    text-align: center;
-    background-image: url("./assets/cyberpunkuno.gif");
-    background-size: cover;
-  }
-  
-  h1 {
-    font-family: myFont;
-    font-size: 700%;
-    color: yellow;
-    -webkit-text-stroke: .1px cyan;
-    text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
-    }
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  border-color: cyan;
+}
+
+input[type="checkbox"]::before {
+  content: "\2713";
+  display: block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  color: black;
+  background-color: #999;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked::before {
+  background-color: yellow;
+}
+
+.item-description {
+  padding: 10px;
+  width: 800px;
+  margin-bottom: 10px;
+  border-color: yellow;
+  background-color: cyan;
+  font-family: myFont;
+  color: black;
+  font-size: x-large;
+  font: bold;
+}
+
+.item-completed:checked + .item-description {
+  background: gray;
+  text-decoration: line-through;
+  text-decoration-color: yellow;
+  text-decoration-style: solid;
+}
+
+#add {
+  cursor: pointer;
+  border-color: cyan;
+}
+
+body {
+  text-align: center;
+  background-image: url("./assets/cyberpunkuno.gif");
+  background-size: cover;
+}
+
+h1 {
+  font-family: myFont;
+  font-size: 700%;
+  color: yellow;
+  -webkit-text-stroke: 0.1px cyan;
+  text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white,
+    -1px 1px 0 white;
+}
 
 .cybr-btn {
-    --primary: yellow;
-    --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
-    --primary-hue: 0;
-    --primary-lightness: 50;
-    --color: hsl(0, 0%, 100%);
-    --font-size: 26px;
-    --shadow-primary-hue: 180;
-    --label-size: 9px;
-    --shadow-secondary-hue: 60;
-    --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
-    --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
-    --border: 4px;
-    --shimmy-distance: 5;
-    --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
-    --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
-    --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
-    --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-    --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-    --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
-    --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-    font-family: 'Cyber', sans-serif;
-    color: cyan;
-    cursor: pointer;
-    background: transparent;
-    text-transform: uppercase;
-    font-size: var(--font-size);
-    outline: transparent;
-    letter-spacing: 2px;
-    position: relative;
-    font-weight: 700;
-    border: 0;
-    min-width: 300px;
-    height: 75px;
-    line-height: 75px;
-    transition: background 0.2s;
-  }
-  .cybr-btn:hover {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
-  }
-  .cybr-btn:active {
-    --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
-  }
-  .cybr-btn:after,
-  .cybr-btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-clip-path: var(--clip);
-            clip-path: var(--clip);
-    z-index: -1;
-  }
-  .cybr-btn:before {
-    background: var(--shadow-primary);
-    transform: translate(var(--border), 0);
-  }
-  .cybr-btn:after {
-    background: yellow;
-  }
-  .cybr-btn__tag {
-    position: absolute;
-    padding: 1px 4px;
-    letter-spacing: 1px;
-    line-height: 1;
-    bottom: -5%;
-    right: 5%;
-    font-weight: normal;
-    color: hsl(0, 0%, 0%);
-    font-size: var(--label-size);
-  }
+  --primary: yellow;
+  --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+  --primary-hue: 0;
+  --primary-lightness: 50;
+  --color: hsl(0, 0%, 100%);
+  --font-size: 26px;
+  --shadow-primary-hue: 180;
+  --label-size: 9px;
+  --shadow-secondary-hue: 60;
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --clip: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    95% 100%,
+    95% 90%,
+    85% 90%,
+    85% 100%,
+    8% 100%,
+    0 70%
+  );
+  --border: 4px;
+  --shimmy-distance: 5;
+  --clip-one: polygon(
+    0 2%,
+    100% 2%,
+    100% 95%,
+    95% 95%,
+    95% 90%,
+    85% 90%,
+    85% 95%,
+    8% 95%,
+    0 70%
+  );
+  --clip-two: polygon(
+    0 78%,
+    100% 78%,
+    100% 100%,
+    95% 100%,
+    95% 90%,
+    85% 90%,
+    85% 100%,
+    8% 100%,
+    0 78%
+  );
+  --clip-three: polygon(
+    0 44%,
+    100% 44%,
+    100% 54%,
+    95% 54%,
+    95% 54%,
+    85% 54%,
+    85% 54%,
+    8% 54%,
+    0 54%
+  );
+  --clip-four: polygon(
+    0 0,
+    100% 0,
+    100% 0,
+    95% 0,
+    95% 0,
+    85% 0,
+    85% 0,
+    8% 0,
+    0 0
+  );
+  --clip-five: polygon(
+    0 0,
+    100% 0,
+    100% 0,
+    95% 0,
+    95% 0,
+    85% 0,
+    85% 0,
+    8% 0,
+    0 0
+  );
+  --clip-six: polygon(
+    0 40%,
+    100% 40%,
+    100% 85%,
+    95% 85%,
+    95% 85%,
+    85% 85%,
+    85% 85%,
+    8% 85%,
+    0 70%
+  );
+  --clip-seven: polygon(
+    0 63%,
+    100% 63%,
+    100% 80%,
+    95% 80%,
+    95% 80%,
+    85% 80%,
+    85% 80%,
+    8% 80%,
+    0 70%
+  );
+  font-family: "Cyber", sans-serif;
+  color: cyan;
+  cursor: pointer;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: var(--font-size);
+  outline: transparent;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 700;
+  border: 0;
+  min-width: 300px;
+  height: 75px;
+  line-height: 75px;
+  transition: background 0.2s;
+}
+.cybr-btn:hover {
+  --primary: hsl(
+    var(--primary-hue),
+    85%,
+    calc(var(--primary-lightness, 50) * 0.8%)
+  );
+}
+.cybr-btn:active {
+  --primary: hsl(
+    var(--primary-hue),
+    85%,
+    calc(var(--primary-lightness, 50) * 0.6%)
+  );
+}
+.cybr-btn:after,
+.cybr-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-clip-path: var(--clip);
+  clip-path: var(--clip);
+  z-index: -1;
+}
+.cybr-btn:before {
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+.cybr-btn:after {
+  background: yellow;
+}
+.cybr-btn__tag {
+  position: absolute;
+  padding: 1px 4px;
+  letter-spacing: 1px;
+  line-height: 1;
+  bottom: -5%;
+  right: 5%;
+  font-weight: normal;
+  color: hsl(0, 0%, 0%);
+  font-size: var(--label-size);
+}
 
-  .cybr-btn__glitch {
-    position: absolute;
-    top: calc(var(--border) * -1);
-    left: calc(var(--border) * -1);
-    right: calc(var(--border) * -1);
-    bottom: calc(var(--border) * -1);
-    background: var(--shadow-primary);
-    text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
-    -webkit-clip-path: var(--clip);
-            clip-path: var(--clip);
-    -webkit-animation: glitch 2s infinite;
-            animation: glitch 2s infinite;
-    display: none;
+.cybr-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+  -webkit-clip-path: var(--clip);
+  clip-path: var(--clip);
+  -webkit-animation: glitch 2s infinite;
+  animation: glitch 2s infinite;
+  display: none;
+}
+.cybr-btn:hover .cybr-btn__glitch {
+  display: block;
+}
+.cybr-btn__glitch:before {
+  content: "";
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
+  -webkit-clip-path: var(--clip);
+  clip-path: var(--clip);
+  background: yellow;
+  z-index: -1;
+}
+@-webkit-keyframes glitch {
+  0% {
+    -webkit-clip-path: var(--clip-one);
+    clip-path: var(--clip-one);
   }
-  .cybr-btn:hover .cybr-btn__glitch {
-    display: block;
+  2%,
+  8% {
+    -webkit-clip-path: var(--clip-two);
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
   }
-  .cybr-btn__glitch:before {
-    content: '';
-    position: absolute;
-    top: calc(var(--border) * 1);
-    right: calc(var(--border) * 1);
-    bottom: calc(var(--border) * 1);
-    left: calc(var(--border) * 1);
-    -webkit-clip-path: var(--clip);
-            clip-path: var(--clip);
-    background: yellow;
-    z-index: -1;
+  6% {
+    -webkit-clip-path: var(--clip-two);
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
   }
-  @-webkit-keyframes glitch {
-    0% {
-      -webkit-clip-path: var(--clip-one);
-              clip-path: var(--clip-one);
-    }
-    2%, 8% {
-      -webkit-clip-path: var(--clip-two);
-              clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    6% {
-      -webkit-clip-path: var(--clip-two);
-              clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    9% {
-      -webkit-clip-path: var(--clip-two);
-              clip-path: var(--clip-two);
-      transform: translate(0, 0);
-    }
-    10% {
-      -webkit-clip-path: var(--clip-three);
-              clip-path: var(--clip-three);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    13% {
-      -webkit-clip-path: var(--clip-three);
-              clip-path: var(--clip-three);
-      transform: translate(0, 0);
-    }
-    14%, 21% {
-      -webkit-clip-path: var(--clip-four);
-              clip-path: var(--clip-four);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    25% {
-      -webkit-clip-path: var(--clip-five);
-              clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    30% {
-      -webkit-clip-path: var(--clip-five);
-              clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    35%, 45% {
-      -webkit-clip-path: var(--clip-six);
-              clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * -1%));
-    }
-    40% {
-      -webkit-clip-path: var(--clip-six);
-              clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * 1%));
-    }
-    50% {
-      -webkit-clip-path: var(--clip-six);
-              clip-path: var(--clip-six);
-      transform: translate(0, 0);
-    }
-    55% {
-      -webkit-clip-path: var(--clip-seven);
-              clip-path: var(--clip-seven);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    60% {
-      -webkit-clip-path: var(--clip-seven);
-              clip-path: var(--clip-seven);
-      transform: translate(0, 0);
-    }
-    31%, 61%, 100% {
-      -webkit-clip-path: var(--clip-four);
-              clip-path: var(--clip-four);
-    }
+  9% {
+    -webkit-clip-path: var(--clip-two);
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
   }
-  @keyframes glitch {
-    0% {
-      -webkit-clip-path: var(--clip-one);
-              clip-path: var(--clip-one);
-    }
-    2%, 8% {
-      -webkit-clip-path: var(--clip-two);
-              clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    6% {
-      -webkit-clip-path: var(--clip-two);
-              clip-path: var(--clip-two);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    9% {
-      -webkit-clip-path: var(--clip-two);
-              clip-path: var(--clip-two);
-      transform: translate(0, 0);
-    }
-    10% {
-      -webkit-clip-path: var(--clip-three);
-              clip-path: var(--clip-three);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    13% {
-      -webkit-clip-path: var(--clip-three);
-              clip-path: var(--clip-three);
-      transform: translate(0, 0);
-    }
-    14%, 21% {
-      -webkit-clip-path: var(--clip-four);
-              clip-path: var(--clip-four);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    25% {
-      -webkit-clip-path: var(--clip-five);
-              clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    30% {
-      -webkit-clip-path: var(--clip-five);
-              clip-path: var(--clip-five);
-      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-    }
-    35%, 45% {
-      -webkit-clip-path: var(--clip-six);
-              clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * -1%));
-    }
-    40% {
-      -webkit-clip-path: var(--clip-six);
-              clip-path: var(--clip-six);
-      transform: translate(calc(var(--shimmy-distance) * 1%));
-    }
-    50% {
-      -webkit-clip-path: var(--clip-six);
-              clip-path: var(--clip-six);
-      transform: translate(0, 0);
-    }
-    55% {
-      -webkit-clip-path: var(--clip-seven);
-              clip-path: var(--clip-seven);
-      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-    }
-    60% {
-      -webkit-clip-path: var(--clip-seven);
-              clip-path: var(--clip-seven);
-      transform: translate(0, 0);
-    }
-    31%, 61%, 100% {
-      -webkit-clip-path: var(--clip-four);
-              clip-path: var(--clip-four);
-    }
+  10% {
+    -webkit-clip-path: var(--clip-three);
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
   }
+  13% {
+    -webkit-clip-path: var(--clip-three);
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%,
+  21% {
+    -webkit-clip-path: var(--clip-four);
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    -webkit-clip-path: var(--clip-five);
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    -webkit-clip-path: var(--clip-five);
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%,
+  45% {
+    -webkit-clip-path: var(--clip-six);
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    -webkit-clip-path: var(--clip-six);
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    -webkit-clip-path: var(--clip-six);
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    -webkit-clip-path: var(--clip-seven);
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    -webkit-clip-path: var(--clip-seven);
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%,
+  61%,
+  100% {
+    -webkit-clip-path: var(--clip-four);
+    clip-path: var(--clip-four);
+  }
+}
+@keyframes glitch {
+  0% {
+    -webkit-clip-path: var(--clip-one);
+    clip-path: var(--clip-one);
+  }
+  2%,
+  8% {
+    -webkit-clip-path: var(--clip-two);
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    -webkit-clip-path: var(--clip-two);
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    -webkit-clip-path: var(--clip-two);
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    -webkit-clip-path: var(--clip-three);
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    -webkit-clip-path: var(--clip-three);
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%,
+  21% {
+    -webkit-clip-path: var(--clip-four);
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    -webkit-clip-path: var(--clip-five);
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    -webkit-clip-path: var(--clip-five);
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%,
+  45% {
+    -webkit-clip-path: var(--clip-six);
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    -webkit-clip-path: var(--clip-six);
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    -webkit-clip-path: var(--clip-six);
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    -webkit-clip-path: var(--clip-seven);
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    -webkit-clip-path: var(--clip-seven);
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%,
+  61%,
+  100% {
+    -webkit-clip-path: var(--clip-four);
+    clip-path: var(--clip-four);
+  }
+}
