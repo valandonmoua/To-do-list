@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="cyberpunk.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>My to-do list</h1>
+  </body>
+    <div id="items">
+      <template id="itemTemplate">
+        <div class="item">
+          <input type="checkbox" class="item-completed" />
+          <input
+            type="text"
+            class="item-description"
+            placeholder="Shit I Need To Do..."
+          />
+        </div>
+      </template>
+    </div>
+    <button id="add" class="cybr-btn">
+      <span aria-hidden>Add New Shit</span>
+      <span aria-hidden class="cybr-btn__glitch">add</span>
+      <span aria-hidden class="cybr-btn__tag">A96</span>
+    </button>
+
+    <audio controls autoplay hidden volume="0.1">
+      <source src="./assets/ireallywannastayatyourhouse.mp3" type="audio/mpeg">
+      <source src="./assets/ireallywannastayatyourhouse.ogg" type="audio/ogg">
+      <source src="./assets/ireallywannastayatyourhouse.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
+  </body>
+</html>
